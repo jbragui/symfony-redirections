@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteBase /web
+
+    RewriteRule ^bundles/(.*)$ /web/bundles/$1  [QSA,L]
+    RewriteRule ^static/(.*)$ /web/static/$1  [QSA,L]
+    RewriteRule ^uploads/(.*)$ /web/uploads/$1  [QSA,L]
+    RewriteRule ^thumbs/(.*)$ /web/thumbs/$1  [QSA,L]
+    RewriteRule ^favicon.ico /web/favicon.ico  [QSA,L]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ app.php [QSA,L]
+</IfModule>

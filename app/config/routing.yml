@@ -1,0 +1,7 @@
+admin:
+    resource: "@CoreZeroBundle/Resources/config/routing.yml"
+
+web:
+    resource: "@WebBundle/Controller/"
+    type:     annotation
+    prefix:   /

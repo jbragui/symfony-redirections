@@ -1,0 +1,9 @@
+parameters:
+    admin_zero:
+        developer: Developer
+        sidebar:
+            
+            - 
+                model: Redirecciones
+                label: Redirecciones
+                ico: home

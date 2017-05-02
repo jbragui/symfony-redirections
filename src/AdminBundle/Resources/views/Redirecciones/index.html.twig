@@ -1,0 +1,41 @@
+{% extends 'CoreZeroBundle:_common:_base_list.html.twig' %}
+
+{% block form_button %}
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        <a href="{{ path(ROUTER_NAME~'_new') }}">
+            <i class="fa fa-plus-circle"></i>
+            Nueva redirección
+        </a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block form_content -%}
+<div class="box-body">
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-hover DataTable">
+                <thead>
+                    <tr>
+                        <th>Ruta antigua</th>
+                        <th>Ruta nueva</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entity in entities %}
+                    <tr>
+                        <td class="control-ajax">
+                            <a href="{{ path(ROUTER_NAME~'_edit', { 'id': entity.id }) }}">{{ entity.desde }}</a>
+                        </td>
+                        <td>
+                            {{ entity.para }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

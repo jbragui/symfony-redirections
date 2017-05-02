@@ -1,0 +1,15 @@
+{% extends 'CoreZeroBundle:_common:_base_form.html.twig' %}
+
+{% block form_content -%}
+<div class="col-md-12">
+    <div class="box box-primary">
+        <div class="box-header">
+            <h3 class="box-title">Registro / edición de redirecciones</h3>
+        </div>
+        <div class="box-body">
+            {{ form_row(form.desde) }}
+            {{ form_row(form.para) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

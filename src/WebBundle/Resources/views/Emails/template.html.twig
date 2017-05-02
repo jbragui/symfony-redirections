@@ -1,0 +1,12 @@
+<style media="screen">
+    .sda{
+        font-weight: bold;
+    }
+</style>
+
+{% macro fila(name, value) %}
+    <tr>
+        <td style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 12px; line-height: 1.6em; color: #666666; margin: 0 0 10px; padding: 0;font-weight: bold;">{{ name|raw }}: </th>
+        <td style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 12px; line-height: 1.6em; color: #666666; font-weight: normal; margin: 0 0 10px; padding: 0;">{{ value|raw }}</td>
+    </tr>
+{% endmacro %}

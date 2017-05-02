@@ -1,0 +1,25 @@
+{% if pageCount > 1 %}
+<!-- PAGER -->
+<div class="g-pager">
+    <ul class="pager-list child-ib">
+        {% for page in pagesInRange %}
+            {% if page != current %}
+            <li class="pager-item">
+                <a class="pager-link" href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a>
+            </li>
+            {% else %}
+            <li class="pager-item">
+                <a class="pager-link active">{{ page }}</a>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% if previous is defined %}
+    <a class="pager-prev" href="{{ path(route, query|merge({(pageParameterName): previous})) }}"><span class="icon-arrow-prev pager-icon"></span></a>
+    {% endif %}
+
+    {% if next is defined %}
+    <a class="pager-next" href="{{ path(route, query|merge({(pageParameterName): next})) }}"><span class="icon-arrow-next pager-icon"></span></a>
+    {% endif %}
+</div>
+{% endif %}

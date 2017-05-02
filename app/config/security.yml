@@ -1,0 +1,40 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                login_path: zerobundle_admin_security_login
+                check_path: zerobundle_admin_security_check
+                csrf_provider: security.csrf.token_manager # Use form.csrf_provider instead for Symfony <2.4
+                # if true, forward the user to the login form instead of redirecting
+                use_forward: false
+                # login success redirecting options (read further below)
+                always_use_default_target_path: false
+                default_target_path: /admin-staff
+                target_path_parameter: _target_path
+                use_referer: false
+            logout:
+                path:  zerobundle_admin_security_logout
+            anonymous:    true
+
+    access_control:
+        - { path: ^/ingresar$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin-staff/, role: ROLE_ADMIN }
+        - { path: ^/api/, role: ROLE_ADMIN }

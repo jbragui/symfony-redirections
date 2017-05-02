@@ -1,0 +1,7 @@
+services:
+    admin.twig.database_globals_extension:
+        class: AdminBundle\Twig\GlobalsExtension
+        arguments:
+            doctrine: "@doctrine"
+        tags:
+            - { name: twig.extension }
