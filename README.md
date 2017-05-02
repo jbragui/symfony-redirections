@@ -1,5 +1,7 @@
 Administrador de contenido - Base
-=============
+
+# symfony-redirections
+Symfony Redirection Module
 
 Framework: Symfony
 
